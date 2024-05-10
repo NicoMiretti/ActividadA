@@ -21,7 +21,7 @@ namespace WebApplicationActividadA
     {
 
         // Creo mi lista de cuentas
-        public List<CuentaBancaria> cuentasBancarias = new List<CuentaBancaria>();
+        public static List<CuentaBancaria> cuentasBancarias = new List<CuentaBancaria>();
 
         [WebMethod]
         public CuentaBancaria CrearCuentaBancaria(int numeroCuenta, string cliente)
@@ -43,7 +43,7 @@ namespace WebApplicationActividadA
         }
 
         [WebMethod]
-        public decimal CalcularSaldo(int numeroCuenta)
+        public string CalcularSaldo(int numeroCuenta)
         {
             // Busco la cuenta
             CuentaBancaria cuenta = cuentasBancarias.FirstOrDefault(c => c.NumeroCuenta == numeroCuenta);
@@ -52,8 +52,9 @@ namespace WebApplicationActividadA
                 throw new Exception("La cuenta bancaria no existe.");
             }
 
+            string cuentaSaldo = "Numero: " + cuenta.NumeroCuenta + " || " + "Cuenta de: " + cuenta.Cliente + " || " + "Saldo: " + cuenta.CalcularSaldo().ToString();
             // Devuelvo el saldo
-            return cuenta.CalcularSaldo();
+            return cuentaSaldo;
         }
 
         [WebMethod]
@@ -84,7 +85,7 @@ namespace WebApplicationActividadA
                 throw new Exception("La cuenta bancaria no existe.");
             }
 
-            // Creo la nueva transacción
+            // Creo la nueva transaccion
             Transaccion transaccion = new Transaccion(fecha, descripcion, monto);
             cuenta.AgregarTransaccion(transaccion);
         }
@@ -100,6 +101,11 @@ namespace WebApplicationActividadA
 
             // Devuelvo la cuenta
             return cuenta;
+        }
+        [WebMethod]
+        public List<CuentaBancaria> ConsultarCuentas()
+        {
+            return cuentasBancarias;
         }
     }
 }

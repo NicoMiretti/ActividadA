@@ -13,7 +13,7 @@ namespace ClassLibraryActividadA
         public List<Transaccion> Transacciones { get; set; }
         public CuentaBancaria()
         {
-            // Este constructor sin parámetros es necesario para la serialización
+            // Constructor sin parametros para serializar
         }
         public CuentaBancaria(int numeroCuenta, string cliente)
         {
@@ -52,7 +52,7 @@ namespace ClassLibraryActividadA
         }
         public Transaccion()
         {
-            // Este constructor sin parámetros es necesario para la serialización
+            // Constructor sin parametros para serializar
         }
     }
 

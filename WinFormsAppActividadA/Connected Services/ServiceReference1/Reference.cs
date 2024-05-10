@@ -128,11 +128,12 @@ namespace ServiceReference1
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CrearCuentaBancaria", ReplyAction="*")]
         System.Threading.Tasks.Task<ServiceReference1.CrearCuentaBancariaResponse> CrearCuentaBancariaAsync(ServiceReference1.CrearCuentaBancariaRequest request);
         
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento CalcularSaldoResult del espacio de nombres http://tempuri.org/ no está marcado para convertirse en valor nulo
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CalcularSaldo", ReplyAction="*")]
-        decimal CalcularSaldo(int numeroCuenta);
+        ServiceReference1.CalcularSaldoResponse CalcularSaldo(ServiceReference1.CalcularSaldoRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CalcularSaldo", ReplyAction="*")]
-        System.Threading.Tasks.Task<decimal> CalcularSaldoAsync(int numeroCuenta);
+        System.Threading.Tasks.Task<ServiceReference1.CalcularSaldoResponse> CalcularSaldoAsync(ServiceReference1.CalcularSaldoRequest request);
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento EsDeudorResult del espacio de nombres http://tempuri.org/ no está marcado para convertirse en valor nulo
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EsDeudor", ReplyAction="*")]
@@ -154,6 +155,13 @@ namespace ServiceReference1
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsultarCuenta", ReplyAction="*")]
         System.Threading.Tasks.Task<ServiceReference1.ConsultarCuentaResponse> ConsultarCuentaAsync(ServiceReference1.ConsultarCuentaRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento ConsultarCuentasResult del espacio de nombres http://tempuri.org/ no está marcado para convertirse en valor nulo
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsultarCuentas", ReplyAction="*")]
+        ServiceReference1.ConsultarCuentasResponse ConsultarCuentas(ServiceReference1.ConsultarCuentasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsultarCuentas", ReplyAction="*")]
+        System.Threading.Tasks.Task<ServiceReference1.ConsultarCuentasResponse> ConsultarCuentasAsync(ServiceReference1.ConsultarCuentasRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -237,6 +245,86 @@ namespace ServiceReference1
         public CrearCuentaBancariaResponseBody(ServiceReference1.CuentaBancaria CrearCuentaBancariaResult)
         {
             this.CrearCuentaBancariaResult = CrearCuentaBancariaResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class CalcularSaldoRequest
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="CalcularSaldo", Namespace="http://tempuri.org/", Order=0)]
+        public ServiceReference1.CalcularSaldoRequestBody Body;
+        
+        public CalcularSaldoRequest()
+        {
+        }
+        
+        public CalcularSaldoRequest(ServiceReference1.CalcularSaldoRequestBody Body)
+        {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class CalcularSaldoRequestBody
+    {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int numeroCuenta;
+        
+        public CalcularSaldoRequestBody()
+        {
+        }
+        
+        public CalcularSaldoRequestBody(int numeroCuenta)
+        {
+            this.numeroCuenta = numeroCuenta;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class CalcularSaldoResponse
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="CalcularSaldoResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ServiceReference1.CalcularSaldoResponseBody Body;
+        
+        public CalcularSaldoResponse()
+        {
+        }
+        
+        public CalcularSaldoResponse(ServiceReference1.CalcularSaldoResponseBody Body)
+        {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class CalcularSaldoResponseBody
+    {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string CalcularSaldoResult;
+        
+        public CalcularSaldoResponseBody()
+        {
+        }
+        
+        public CalcularSaldoResponseBody(string CalcularSaldoResult)
+        {
+            this.CalcularSaldoResult = CalcularSaldoResult;
         }
     }
     
@@ -484,6 +572,78 @@ namespace ServiceReference1
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ConsultarCuentasRequest
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ConsultarCuentas", Namespace="http://tempuri.org/", Order=0)]
+        public ServiceReference1.ConsultarCuentasRequestBody Body;
+        
+        public ConsultarCuentasRequest()
+        {
+        }
+        
+        public ConsultarCuentasRequest(ServiceReference1.ConsultarCuentasRequestBody Body)
+        {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class ConsultarCuentasRequestBody
+    {
+        
+        public ConsultarCuentasRequestBody()
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ConsultarCuentasResponse
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ConsultarCuentasResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ServiceReference1.ConsultarCuentasResponseBody Body;
+        
+        public ConsultarCuentasResponse()
+        {
+        }
+        
+        public ConsultarCuentasResponse(ServiceReference1.ConsultarCuentasResponseBody Body)
+        {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class ConsultarCuentasResponseBody
+    {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ServiceReference1.CuentaBancaria[] ConsultarCuentasResult;
+        
+        public ConsultarCuentasResponseBody()
+        {
+        }
+        
+        public ConsultarCuentasResponseBody(ServiceReference1.CuentaBancaria[] ConsultarCuentasResult)
+        {
+            this.ConsultarCuentasResult = ConsultarCuentasResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
     public interface WebService1SoapChannel : ServiceReference1.WebService1Soap, System.ServiceModel.IClientChannel
     {
@@ -558,14 +718,33 @@ namespace ServiceReference1
             return ((ServiceReference1.WebService1Soap)(this)).CrearCuentaBancariaAsync(inValue);
         }
         
-        public decimal CalcularSaldo(int numeroCuenta)
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ServiceReference1.CalcularSaldoResponse ServiceReference1.WebService1Soap.CalcularSaldo(ServiceReference1.CalcularSaldoRequest request)
         {
-            return base.Channel.CalcularSaldo(numeroCuenta);
+            return base.Channel.CalcularSaldo(request);
         }
         
-        public System.Threading.Tasks.Task<decimal> CalcularSaldoAsync(int numeroCuenta)
+        public string CalcularSaldo(int numeroCuenta)
         {
-            return base.Channel.CalcularSaldoAsync(numeroCuenta);
+            ServiceReference1.CalcularSaldoRequest inValue = new ServiceReference1.CalcularSaldoRequest();
+            inValue.Body = new ServiceReference1.CalcularSaldoRequestBody();
+            inValue.Body.numeroCuenta = numeroCuenta;
+            ServiceReference1.CalcularSaldoResponse retVal = ((ServiceReference1.WebService1Soap)(this)).CalcularSaldo(inValue);
+            return retVal.Body.CalcularSaldoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ServiceReference1.CalcularSaldoResponse> ServiceReference1.WebService1Soap.CalcularSaldoAsync(ServiceReference1.CalcularSaldoRequest request)
+        {
+            return base.Channel.CalcularSaldoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.CalcularSaldoResponse> CalcularSaldoAsync(int numeroCuenta)
+        {
+            ServiceReference1.CalcularSaldoRequest inValue = new ServiceReference1.CalcularSaldoRequest();
+            inValue.Body = new ServiceReference1.CalcularSaldoRequestBody();
+            inValue.Body.numeroCuenta = numeroCuenta;
+            return ((ServiceReference1.WebService1Soap)(this)).CalcularSaldoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -658,6 +837,33 @@ namespace ServiceReference1
             inValue.Body = new ServiceReference1.ConsultarCuentaRequestBody();
             inValue.Body.numeroCuenta = numeroCuenta;
             return ((ServiceReference1.WebService1Soap)(this)).ConsultarCuentaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ServiceReference1.ConsultarCuentasResponse ServiceReference1.WebService1Soap.ConsultarCuentas(ServiceReference1.ConsultarCuentasRequest request)
+        {
+            return base.Channel.ConsultarCuentas(request);
+        }
+        
+        public ServiceReference1.CuentaBancaria[] ConsultarCuentas()
+        {
+            ServiceReference1.ConsultarCuentasRequest inValue = new ServiceReference1.ConsultarCuentasRequest();
+            inValue.Body = new ServiceReference1.ConsultarCuentasRequestBody();
+            ServiceReference1.ConsultarCuentasResponse retVal = ((ServiceReference1.WebService1Soap)(this)).ConsultarCuentas(inValue);
+            return retVal.Body.ConsultarCuentasResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ServiceReference1.ConsultarCuentasResponse> ServiceReference1.WebService1Soap.ConsultarCuentasAsync(ServiceReference1.ConsultarCuentasRequest request)
+        {
+            return base.Channel.ConsultarCuentasAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.ConsultarCuentasResponse> ConsultarCuentasAsync()
+        {
+            ServiceReference1.ConsultarCuentasRequest inValue = new ServiceReference1.ConsultarCuentasRequest();
+            inValue.Body = new ServiceReference1.ConsultarCuentasRequestBody();
+            return ((ServiceReference1.WebService1Soap)(this)).ConsultarCuentasAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()
